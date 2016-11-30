@@ -1,6 +1,6 @@
 Package.describe({
   name: 'clinical:hl7-resource-imaging-study',
-  version: '1.2.0',
+  version: '1.2.1',
   summary: 'HL7 FHIR Resource - Imaging Study',
   git: 'https://github.com/clinical-meteor/hl7-resource-imaging-study',
   documentation: 'README.md'
