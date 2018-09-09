@@ -48,7 +48,7 @@ export default class ImagingStudyDetail extends React.Component {
       //   data.imagingStudyId = Session.get('selectedImagingStudy');
         console.log("selectedImagingStudy", Session.get('selectedImagingStudy'));
 
-        let selectedImagingStudy = ImagingStudys.findOne({_id: Session.get('selectedImagingStudy')});
+        let selectedImagingStudy = ImagingStudies.findOne({_id: Session.get('selectedImagingStudy')});
         console.log("selectedImagingStudy", selectedImagingStudy);
 
         if (selectedImagingStudy) {
@@ -231,7 +231,7 @@ export default class ImagingStudyDetail extends React.Component {
       // not sure why we're having to respecify this; fix for a bug elsewhere
       imagingStudyUpdate.resourceType = 'ImagingStudy';
 
-      ImagingStudys.update(
+      ImagingStudies.update(
         {_id: Session.get('selectedImagingStudy')}, {$set: imagingStudyUpdate }, function(error, result) {
           if (error) {
             console.log("error", error);
@@ -239,7 +239,7 @@ export default class ImagingStudyDetail extends React.Component {
             Bert.alert(error.reason, 'danger');
           }
           if (result) {
-            HipaaLogger.logEvent({eventType: "update", userId: Meteor.userId(), userName: Meteor.user().fullName(), collectionName: "ImagingStudys", recordId: Session.get('selectedImagingStudy')});
+            HipaaLogger.logEvent({eventType: "update", userId: Meteor.userId(), userName: Meteor.user().fullName(), collectionName: "ImagingStudies", recordId: Session.get('selectedImagingStudy')});
             Session.set('imagingStudyPageTabIndex', 1);
             Session.set('selectedImagingStudy', false);
             Session.set('imagingStudyUpsert', false);
@@ -250,13 +250,13 @@ export default class ImagingStudyDetail extends React.Component {
 
       if(process.env.NODE_ENV === "test") console.log("create a new imagingStudy", imagingStudyUpdate);
 
-      ImagingStudys.insert(imagingStudyUpdate, function(error, result) {
+      ImagingStudies.insert(imagingStudyUpdate, function(error, result) {
         if (error) {
           console.log("error", error);
           Bert.alert(error.reason, 'danger');
         }
         if (result) {
-          HipaaLogger.logEvent({eventType: "create", userId: Meteor.userId(), userName: Meteor.user().fullName(), collectionName: "ImagingStudys", recordId: result});
+          HipaaLogger.logEvent({eventType: "create", userId: Meteor.userId(), userName: Meteor.user().fullName(), collectionName: "ImagingStudies", recordId: result});
           Session.set('imagingStudyPageTabIndex', 1);
           Session.set('selectedImagingStudy', false);
           Session.set('imagingStudyUpsert', false);
@@ -276,7 +276,7 @@ export default class ImagingStudyDetail extends React.Component {
         Bert.alert(error.reason, 'danger');
       }
       if (result) {
-        HipaaLogger.logEvent({eventType: "delete", userId: Meteor.userId(), userName: Meteor.user().fullName(), collectionName: "ImagingStudys", recordId: Session.get('selectedImagingStudy')});
+        HipaaLogger.logEvent({eventType: "delete", userId: Meteor.userId(), userName: Meteor.user().fullName(), collectionName: "ImagingStudies", recordId: Session.get('selectedImagingStudy')});
         Session.set('imagingStudyPageTabIndex', 1);
         Session.set('selectedImagingStudy', false);
         Session.set('imagingStudyUpsert', false);

@@ -51,7 +51,8 @@ export class ImagingStudiesPage extends React.Component {
           <GlassCard height='auto'>
             <CardTitle title='ImagingStudies' />
             <CardText>
-              <Tabs id="imagingStudiessPageTabs" default value={this.data.tabIndex} onChange={this.handleTabChange} initialSelectedIndex={1}>
+              <ImagingStudiesTable />
+              {/* <Tabs id="imagingStudiessPageTabs" default value={this.data.tabIndex} onChange={this.handleTabChange} initialSelectedIndex={1}>
                <Tab className='newProcedureTab' label='New' style={this.data.style.tab} onActive={ this.onNewTab } value={0}>
                  <ProcedureDetail id='newProcedure' />
                </Tab>
@@ -63,8 +64,8 @@ export class ImagingStudiesPage extends React.Component {
                   id='imagingStudiesDetails'
                   showDatePicker={true} 
                  />
-               </Tab>
-             </Tabs>
+               </Tab> 
+             </Tabs>*/}
             </CardText>
           </GlassCard>
         </VerticalCanvas>
